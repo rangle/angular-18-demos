@@ -17,7 +17,7 @@ import { ProfileComponent } from '../../components/profile/profile.component';
       <button mat-raised-button (click)="fetchProfile()">Fetch Profile</button>
       <hr />
       @defer(when showProfile;) {
-      <app-profile [user]="user()" />
+      <!-- <app-profile [user]="user()" /> -->
       } @placeholder (minimum 750ms){
       <img
         src="https://www.dovercourt.org/wp-content/uploads/2019/11/610-6104451_image-placeholder-png-user-profile-placeholder-image-png-286x300.jpg"

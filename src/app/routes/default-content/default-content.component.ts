@@ -1,26 +1,5 @@
 import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-content-dialog',
-  standalone: true,
-  imports: [],
-  template: `
-    <div>
-      <div class="dialog-header">
-        <ng-content select="header">Default Header</ng-content>
-      </div>
-      <ng-content select=".contents">No Contents Provided</ng-content>
-      <ng-content select="footer">Default Footer</ng-content>
-    </div>
-  `,
-  styles: `
-  .dialog-header {
-    // background-color: red;
-  }
-  `,
-})
-export class ContentDialogComponent {}
-
+import { ContentDialogComponent } from '../../components/content-dialog/content-dialog.component';
 @Component({
   selector: 'app-default-content',
   standalone: true,

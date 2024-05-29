@@ -1,19 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, computed, input, model, output } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <pre>
-      User data:
-      {{ user() | json }}
-    </pre
-    >
-  `,
-  styles: ``,
+  imports: [CommonModule, MatButtonModule],
+  templateUrl: './profile.component.html',
 })
 export class ProfileComponent {
-  user = input();
+  firstName = input.required();
+  lastName = input.required();
+  email = model.required();
+
+  photo = input();
+
+  fullName = computed(() => this.firstName() + ' ' + this.lastName());
+
+  giveHighFile = output();
+  // outputFromObservable
+  // outputToObservable
+
+  updateEmail() {
+    this.email.set('newemail@mail.com');
+  }
 }
