@@ -1,0 +1,28 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" opened>
+    <nav>
+      <h3>Angular 18 Demos</h3>
+      <mat-divider></mat-divider>
+      <button mat-raised-button color="primary">Zoneless Angular</button>
+      <button mat-raised-button color="primary" routerLink="/deferred-loading">
+        Deferred Loading
+      </button>
+      <button mat-raised-button color="primary" routerLink="/signals">
+        Angular Signals
+      </button>
+      <button mat-raised-button color="primary" routerLink="/control-flow">
+        New Control Flow
+      </button>
+      <button mat-raised-button color="primary">Route Redirect Command</button>
+      <button mat-raised-button color="primary" routerLink="/default-content">
+        Default Content
+      </button>
+      <button mat-raised-button color="primary" routerLink="/form-events">
+        Unified Form Control Events
+      </button>
+    </nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet />
+  </mat-drawer-content>
+</mat-drawer-container>
