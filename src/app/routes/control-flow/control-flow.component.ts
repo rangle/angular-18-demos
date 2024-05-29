@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   imports: [MatChipsModule, MatListModule, MatDividerModule, CommonModule],
   template: `
     <div>
+      <h3 style="text-align: center;">New Control Flow</h3>
+      <hr />
       <section>
         @if (user.role === 'admin') {
         <pre>{{ user | json }}</pre>

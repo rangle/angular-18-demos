@@ -5,12 +5,11 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <p>
-      demo-signals works!
-    </p>
+    <div>
+      <h3 style="text-align: center;">Angular Signals</h3>
+      <hr />
+    </div>
   `,
-  styles: ``
+  styles: ``,
 })
-export class DemoSignalsComponent {
-
-}
+export class DemoSignalsComponent {}

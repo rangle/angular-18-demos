@@ -5,12 +5,13 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <p>
-      home works!
-    </p>
+    <div>
+      <h3 style="text-align: center;">Home</h3>
+      <hr />
+      <h5>Angular 18 demos application.</h5>
+      <h5>Click on the links to view specific demo.</h5>
+    </div>
   `,
-  styles: ``
+  styles: ``,
 })
-export class HomeComponent {
-
-}
+export class HomeComponent {}

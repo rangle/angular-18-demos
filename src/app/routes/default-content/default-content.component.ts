@@ -5,16 +5,19 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <h3>
-      <span>Hello, I am </span>
-      <ng-content select="header"></ng-content>
-    </h3>
-
-    <h4>
-      <ng-content select="footer"></ng-content>
-    </h4>
+    <div>
+      <div class="dialog-header">
+        <ng-content select="header">Default Header</ng-content>
+      </div>
+      <ng-content select=".contents">No Contents Provided</ng-content>
+      <ng-content select="footer">Default Footer</ng-content>
+    </div>
   `,
-  styles: ``,
+  styles: `
+  .dialog-header {
+    // background-color: red;
+  }
+  `,
 })
 export class ContentDialogComponent {}
 
@@ -23,17 +26,24 @@ export class ContentDialogComponent {}
   standalone: true,
   imports: [ContentDialogComponent],
   template: `
-    <p>default-content works!</p>
+    <h3 style="text-align: center;">Default Content</h3>
+    <hr />
 
     <app-content-dialog>
-      <strong class="header">Senior Developer</strong>
-      <strong class="footer">Experience : 5 years</strong>
+      <header>Custom Dialog Header</header>
+      <div class="contents">Dialog Contents</div>
+      <footer>Custom Dialog Footer</footer>
     </app-content-dialog>
     <hr />
 
     <app-content-dialog>
-      <strong class="header">Application Developer</strong>
-      <strong class="footer">Experience : 2 years</strong>
+      <div class="contents">Just Contents</div>
+    </app-content-dialog>
+    <hr />
+
+    <app-content-dialog>
+      <header>Custom Dialog Header</header>
+      <footer>Custom Dialog Footer</footer>
     </app-content-dialog>
   `,
   styles: ``,
