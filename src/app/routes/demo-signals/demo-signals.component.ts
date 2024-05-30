@@ -61,6 +61,10 @@ export class DemoSignalsComponent {
 
   constructor() {
     console.log(`counter value: ${this.counter()}`);
+
+    effect(() => {
+      console.log(`New value: ${this.counter()}`);
+    });
   }
 
   ngOnInit() {

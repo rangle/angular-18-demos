@@ -1,0 +1,17 @@
+<p>Counter: {{ counter() }}</p>
+<button (click)="incrementCounter()">Increment</button>
+<hr />
+<p>Timer Counter: {{ timerCounter }}</p>
+<hr />
+
+<!-- @for (user of users$ | async; track $index) {
+<p>{{ user.name.first + " " + user.name.last }}</p>
+} -->
+<!-- 
+@for (user of usersList; track $index) {
+<p>{{ user.name.first + " " + user.name.last }}</p>
+} -->
+
+<!-- @for (user of usersSignal(); track $index) {
+<p>{{ user.name.first + " " + user.name.last }}</p>
+} -->
