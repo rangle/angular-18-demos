@@ -1,0 +1,17 @@
+<h1 i18n="User welcome|An introduction header for this sample@@introductionHeader">
+    This component has hydration i18n support!
+</h1>
+<button type="button" (click)="inc(1)">+</button> <button type="button" (click)="inc(-1)">-</button>
+<span i18n>Updated {minutes, plural, =0 {just now} =1 {one minute ago} other {{{ minutes }} minutes ago}}</span>
+({{ minutes }})
+<br><br>
+<button type="button" (click)="male()">♂</button>
+<button type="button" (click)="female()">♀</button>
+<button type="button" (click)="other()">⚧</button>
+<span i18n>The author is {gender, select, male {male} female {female} other {other}}</span>
+<br><br>
+<span i18n>Updated: {minutes, plural,
+    =0 {just now}
+    =1 {one minute ago}
+    other {{{ minutes }} minutes ago by {gender, select, male {male} female {female} other {other}}}}
+</span>

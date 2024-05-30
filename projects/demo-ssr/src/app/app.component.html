@@ -1,0 +1,26 @@
+<mat-drawer-container>
+  <mat-drawer mode="side" opened>
+    <nav>
+      <h3>Angular 18 SSR Demo</h3>
+      <mat-divider></mat-divider>
+      <button mat-raised-button color="primary" routerLink="">
+        Home
+      </button>
+      <button mat-raised-button color="primary" routerLink="/ssr">
+        Server-Side Rendering
+      </button>
+      <button mat-raised-button color="primary" routerLink="/hydration">
+        Hydration
+      </button>
+      <button mat-raised-button color="primary" routerLink="/i18n">
+        i18n
+      </button>
+      <button mat-raised-button color="primary" routerLink="/event-replay">
+        Event-Replay
+      </button>
+    </nav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet />
+  </mat-drawer-content>
+</mat-drawer-container>
