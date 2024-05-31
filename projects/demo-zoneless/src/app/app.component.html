@@ -4,14 +4,28 @@
 <p>Timer Counter: {{ timerCounter }}</p>
 <hr />
 
-<!-- @for (user of users$ | async; track $index) {
-<p>{{ user.name.first + " " + user.name.last }}</p>
-} -->
-<!-- 
-@for (user of usersList; track $index) {
-<p>{{ user.name.first + " " + user.name.last }}</p>
-} -->
-
-<!-- @for (user of usersSignal(); track $index) {
-<p>{{ user.name.first + " " + user.name.last }}</p>
-} -->
+<table>
+  <tr>
+    <th>Users async observable working in zoneless</th>
+    <th>Users list property not working in zoneless</th>
+    <th>Users list signal working in zoneless</th>
+  </tr>
+  <tr>
+    <td>
+      @for (user of users$ | async; track $index) {
+      <p>{{ user.name.first + " " + user.name.last }}</p>
+      }
+    </td>
+    <td>
+      @for (user of usersList; track $index) {
+      <p>{{ user.name.first + " " + user.name.last }}</p>
+      }
+    </td>
+    <td>
+      @for (user of usersSignal(); track $index) {
+      <p>{{ user.name.first + " " + user.name.last }}</p>
+      }
+    </td>
+  </tr>
+  <tr></tr>
+</table>

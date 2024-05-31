@@ -18,8 +18,8 @@ export class ProfileComponent {
   fullName = computed(() => this.firstName() + ' ' + this.lastName());
 
   giveHighFile = output();
-  // outputFromObservable
-  // outputToObservable
+  // outputFromObservable - can create output from an observable
+  // outputToObservable - can create output to an observable as well
 
   updateEmail() {
     this.email.set('newemail@mail.com');

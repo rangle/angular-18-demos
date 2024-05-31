@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
-import { Observable, lastValueFrom, map } from 'rxjs';
+import { delay, lastValueFrom, map } from 'rxjs';
 
 const USERS_URL = 'https://randomuser.me/api?results=10';
 
@@ -19,6 +19,7 @@ export class AppComponent {
   timerCounter = 0;
 
   httpClient = inject(HttpClient);
+  changeDetRef = inject(ChangeDetectorRef);
 
   usersList: any[] = [];
   users$ = this.getUsers();
@@ -31,11 +32,15 @@ export class AppComponent {
   ngOnInit(): void {
     setInterval(() => {
       this.timerCounter = this.timerCounter + 1;
+      // this.changeDetRef.markForCheck(); // will work when uncommenting it
     }, 1000);
 
-    this.getUsers().subscribe((response) => {
-      this.usersList = response;
-    });
+    this.getUsers()
+      .pipe(delay(2000)) // simulating delay so not to interfare with usersSignal update
+      .subscribe((response) => {
+        this.usersList = response;
+        // this.changeDetRef.markForCheck(); // will work when uncommenting it
+      });
   }
 
   getUsers() {
@@ -45,6 +50,5 @@ export class AppComponent {
   }
   async loadUsers() {
     const response: any = await lastValueFrom(this.httpClient.get(USERS_URL));
-    console.log(response);
   }
 }
