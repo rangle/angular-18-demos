@@ -1,5 +1,4 @@
 import { RedirectCommand, Router, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { ControlFlowComponent } from './routes/control-flow/control-flow.component';
 import { DemoSignalsComponent } from './routes/demo-signals/demo-signals.component';
 import { FormEventsComponent } from './routes/form-events/form-events.component';

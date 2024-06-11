@@ -1,31 +1,12 @@
-<p>Counter: {{ counter() }}</p>
-<button (click)="incrementCounter()">Increment</button>
-<hr />
-<p>Timer Counter: {{ timerCounter }}</p>
-<hr />
+<div class="flex justify-center bg-blue-700 py-6 text-white">
+  <a href="counter" class="px-8 hover:underline text-2xl">Counter</a>
+  <a href="users-property" class="px-8 hover:underline text-2xl"
+    >Users Propery</a
+  >
+  <a href="users-async" class="px-8 hover:underline text-2xl">Users Async</a>
+  <a href="users-signal" class="px-8 hover:underline text-2xl">Users Signal</a>
+</div>
 
-<table>
-  <tr>
-    <th>Users async observable working in zoneless</th>
-    <th>Users list property not working in zoneless</th>
-    <th>Users list signal working in zoneless</th>
-  </tr>
-  <tr>
-    <td>
-      @for (user of users$ | async; track $index) {
-      <p>{{ user.name.first + " " + user.name.last }}</p>
-      }
-    </td>
-    <td>
-      @for (user of usersList; track $index) {
-      <p>{{ user.name.first + " " + user.name.last }}</p>
-      }
-    </td>
-    <td>
-      @for (user of usersSignal(); track $index) {
-      <p>{{ user.name.first + " " + user.name.last }}</p>
-      }
-    </td>
-  </tr>
-  <tr></tr>
-</table>
+<div class="py-10 container mx-auto">
+  <router-outlet />
+</div>
