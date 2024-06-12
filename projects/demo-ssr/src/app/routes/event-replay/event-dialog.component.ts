@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     :host {
       display: block;
       text-align: center;
+      padding: 16px;
     }
   `]
 })

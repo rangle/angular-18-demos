@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'i18n',
   standalone: true,
-  imports: [],
+  imports: [
+    MatButtonModule,
+    MatIconModule
+  ],
   templateUrl: './i18n.component.html',
   styleUrl: './i18n.component.css'
 })
