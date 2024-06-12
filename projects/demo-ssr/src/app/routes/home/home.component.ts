@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  host: {ngSkipHydration: 'true'}
+  host: {ngSkipHydration: 'true'},
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: string,
+  ){}
+
+  get isBrowserOnly(): boolean {
+     return isPlatformBrowser(this.platformId);
+  }
+}
