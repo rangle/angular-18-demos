@@ -173,7 +173,10 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "fr-ca": "projects/demo-ssr/src/app/messages.fr.xlf"
+          "fr-ca": {
+            "baseHref": "/fr-ca/",
+            "translation": "projects/demo-ssr/src/app/messages.fr-ca.xlf"
+          }
         }
       },
       "projectType": "application",
@@ -185,7 +188,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": ["fr-ca"],
+            "localize": [
+              "en-US",
+              "fr-ca"
+            ],
+            "i18nMissingTranslation": "warning",
+            "baseHref": "/en-US/",
             "outputPath": "dist/demo-ssr",
             "index": "projects/demo-ssr/src/index.html",
             "browser": "projects/demo-ssr/src/main.ts",
@@ -212,7 +220,8 @@
           },
           "configurations": {
             "production": {
-              "localize": ["fr-ca"],
+              "localize": true,
+              "baseHref": "/",
               "budgets": [
                 {
                   "type": "initial",
@@ -228,7 +237,10 @@
               "outputHashing": "all"
             },
             "development": {
-              "localize": ["fr-ca"],
+              "localize": [
+                "en-US"
+              ],
+              "baseHref": "/en-US/",
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
@@ -245,10 +257,18 @@
           },
           "configurations": {
             "production": {
-              "localize": ["fr-ca"]
+              "localize": [
+                "en-US",
+                "fr-ca"
+              ],
+              "baseHref": "/en-US/"
             },
             "development": {
-              "localize": ["fr-ca"]
+              "localize": [
+                "en-US",
+                "fr-ca"
+              ],
+              "baseHref": "/en-US/"
             }
           },
           "defaultConfiguration": "production"

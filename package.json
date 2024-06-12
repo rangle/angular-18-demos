@@ -7,8 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:demo-ssr": "ng build --project=demo-ssr --localize --configuration development",
-    "serve:demo-ssr": "ng serve demo-ssr"
+    "build:demo-ssr": "ng build --project=demo-ssr --localize --configuration production && node copy-proxy-server.js",
+    "serve:demo-ssr": "ng serve demo-ssr",
+    "serve:ssr:proxy": "node dist/demo-ssr/proxy-server.mjs"
   },
   "private": true,
   "dependencies": {
