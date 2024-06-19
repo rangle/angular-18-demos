@@ -1,23 +1,38 @@
-import { app as serverEn } from './server/en-US/server.mjs';
-import { app as serverFr } from './server/fr-ca/server.mjs';
-import path from "node:path";
-import {fileURLToPath} from "node:url";
+import { app as serverEn } from './server/en/server.mjs';
+import { app as serverFr } from './server/fr/server.mjs';
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
-const __dirname = path.dirname(__filename); // get the name of the directory
-
-
-const express = require('express');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function run() {
   const port = process.env.PORT || 4000;
   const server = express();
 
+  server.use((req, res, next) => {
+    if (req.path.endsWith('.js')) {
+      res.setHeader('Content-Type', 'application/javascript');
+    }
+    next();
+  });
 
-  server.use('/fr-ca', serverFr());
-  server.use('/en-US', serverEn());
+  server.use('/fr', express.static(path.join(__dirname, 'browser/fr')));
+  server.use('/fr', serverFr());
+  server.use('/en', express.static(path.join(__dirname, 'browser/en')));
+  server.use('/en', serverEn());
+
+  server.get('*', (req, res) => {
+    if (req.path.startsWith('/fr')) {
+      res.sendFile(path.join(__dirname, 'browser/fr/index.html'));
+    } else {
+      res.sendFile(path.join(__dirname, 'browser/en/index.html'));
+    }
+  });
+
   server.listen(port, () => {
-    console.log(`Node Express server listening on http://localhost:${port}`);
+    console.log(`Node Express server listening on http://localhost:${port}/en`);
   });
 }
 

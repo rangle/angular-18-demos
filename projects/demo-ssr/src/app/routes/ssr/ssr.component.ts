@@ -9,5 +9,7 @@ import { Component } from '@angular/core';
   host: {ngSkipHydration: 'true'}
 })
 export class SsrComponent {
-
+  checkNoHydration() {
+    console.log("no hydration")
+  }
 }

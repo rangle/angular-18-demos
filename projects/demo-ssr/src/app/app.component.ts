@@ -6,6 +6,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { PokemonService } from './service/pokemon.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSlideToggleModule,
     MatDividerModule,
     MatButtonModule
+  ],
+  providers: [
+    PokemonService
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

@@ -1,5 +1,8 @@
 <div>
-    <p>This component demos event replay!</p>
-    <p>Refresh the page, and click the button. The snackbar will appear once the component is hydrated, even if you clicked the button before that!</p>
-    <button mat-flat-button color="primary" (click)="handleClick()">click here!</button>
+    <h1>This component demos event replay!</h1>
+    <p>Refresh the page, and click the button. Bulbasaur will appear once the component has hydrated, even if you clicked the button before that!</p>
+    <button mat-flat-button color="primary" (click)="search()">Catch Bulbasaur!</button>
+    <div *ngIf="(sprite$ | async) as sprite">
+        <img [src]="sprite" alt="Pokemon Sprite">
+    </div>
 </div>

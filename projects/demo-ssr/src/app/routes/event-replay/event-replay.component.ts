@@ -1,14 +1,21 @@
-import { Component, AfterViewInit, ViewChild, TemplateRef } from '@angular/core';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { EventDialogComponent } from './event-dialog.component';
+import { AfterViewInit, Component } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { Observable, of } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { PokemonService } from '../../service/pokemon.service';
 
 @Component({
   selector: 'event-replay',
   standalone: true,
   imports: [
-    MatDialogModule,
     MatButtonModule,
+    FormsModule, 
+    MatFormFieldModule, 
+    MatInputModule,
+    CommonModule
   ],
   templateUrl: './event-replay.component.html',
   styleUrl: './event-replay.component.css',
@@ -16,8 +23,10 @@ import { MatButtonModule } from '@angular/material/button';
 export class EventReplayComponent implements AfterViewInit {
 
   isHydrated = false;
+  sprite$: Observable<string> = of('');
+  searchTerm: string = 'bulbasaur';
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private pokemonService: PokemonService) {}
 
   ngAfterViewInit(): void {
     setTimeout(() => {
@@ -30,10 +39,10 @@ export class EventReplayComponent implements AfterViewInit {
     console.log('Component has been hydrated');
   }
 
-  handleClick(): void {
+  search() {
     if (this.isHydrated) {
-      console.log("clicked");
-      this.dialog.open(EventDialogComponent, {});
+      console.log("catching bulbasaur!");
+      this.sprite$ = this.pokemonService.getPokemonSprite(this.searchTerm);    
     } else {
       console.log('Event ignored because component is not hydrated yet');
     }

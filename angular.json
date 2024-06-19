@@ -132,7 +132,8 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -171,10 +172,12 @@
     },
     "demo-ssr": {
       "i18n": {
-        "sourceLocale": "en-US",
+        "sourceLocale": {
+          "code": "en"
+        },
         "locales": {
-          "fr-ca": {
-            "baseHref": "/fr-ca/",
+          "fr": {
+            "baseHref": "/fr/",
             "translation": "projects/demo-ssr/src/app/messages.fr-ca.xlf"
           }
         }
@@ -188,12 +191,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize": [
-              "en-US",
-              "fr-ca"
-            ],
-            "i18nMissingTranslation": "warning",
-            "baseHref": "/en-US/",
             "outputPath": "dist/demo-ssr",
             "index": "projects/demo-ssr/src/index.html",
             "browser": "projects/demo-ssr/src/main.ts",
@@ -202,6 +199,7 @@
             ],
             "tsConfig": "projects/demo-ssr/tsconfig.app.json",
             "assets": [
+              "projects/demo-ssr/src/app/assets",
               {
                 "glob": "**/*",
                 "input": "projects/demo-ssr/public"
@@ -216,7 +214,10 @@
             "prerender": true,
             "ssr": {
               "entry": "projects/demo-ssr/server.ts"
-            }
+            },
+            "localize": true,
+            "i18nMissingTranslation": "warning",
+            "i18nDuplicateTranslation": "warning"
           },
           "configurations": {
             "production": {
@@ -237,38 +238,10 @@
               "outputHashing": "all"
             },
             "development": {
-              "localize": [
-                "en-US"
-              ],
-              "baseHref": "/en-US/",
+              "localize": true,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/demo-ssr/server",
-            "main": "projects/demo-ssr/src/main.server.ts",
-            "tsConfig": "projects/demo-ssr/tsconfig.server.json"
-          },
-          "configurations": {
-            "production": {
-              "localize": [
-                "en-US",
-                "fr-ca"
-              ],
-              "baseHref": "/en-US/"
-            },
-            "development": {
-              "localize": [
-                "en-US",
-                "fr-ca"
-              ],
-              "baseHref": "/en-US/"
             }
           },
           "defaultConfiguration": "production"
