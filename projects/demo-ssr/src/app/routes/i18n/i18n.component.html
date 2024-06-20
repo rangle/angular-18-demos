@@ -1,0 +1,29 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<h1 i18n="User welcome|An introduction header for this sample@@introductionHeader">
+    This component has hydration i18n support!
+</h1>
+<button mat-icon-button color="primary" (click)="inc(1)">
+    <mat-icon>add</mat-icon>
+</button>
+<button mat-icon-button color="primary" (click)="inc(-1)">
+    <mat-icon>remove</mat-icon>
+</button>
+<span i18n>Updated {minutes, plural, =0 {just now} =1 {one minute ago} other {{{ minutes }} minutes ago}}</span>
+({{ minutes }})
+<br><br>
+<button mat-icon-button color="primary" (click)="male()">
+    <mat-icon>male</mat-icon>
+</button>
+<button mat-icon-button color="primary" (click)="female()">
+    <mat-icon>female</mat-icon>
+</button>
+<button mat-icon-button color="primary" (click)="other()">
+    <mat-icon>transgender</mat-icon>
+</button>
+<span i18n>The author is {gender, select, male {male} female {female} other {other}}</span>
+<br><br>
+<span i18n>Updated: {minutes, plural,
+    =0 {just now}
+    =1 {one minute ago}
+    other {{{ minutes }} minutes ago by {gender, select, male {male} female {female} other {other}}}}
+</span>

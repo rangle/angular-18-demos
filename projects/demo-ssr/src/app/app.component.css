@@ -1,0 +1,25 @@
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-drawer {
+    background-color: #d7e3ff;
+}
+
+mat-drawer-content {
+    padding: 25px;
+}
+
+nav {
+    display: flex;
+    padding: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+button {
+    width: 100%;
+    margin-bottom: 15px !important;
+}
